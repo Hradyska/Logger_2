@@ -2,6 +2,6 @@
   "GetLogConfig": {
     "LogName": ".txt",
     "Path": ".\\log\\",
-    "TimeFormat": "hh.mm.ss dd.MM.yyyy"
+    "TimeFormat": "H.mm.ss dd.MM.yyyy"
   }
 }

@@ -17,8 +17,6 @@ namespace LoggerWithException
         /// <param name="args">arg1.</param>
         private static void Main(string[] args)
         {
-            FileService.Path = ".\\log\\";
-            FileService.FileName = $"{DateTime.Now.ToString("hh.hh.ss dd.MM.yyyy") + ".txt"}";
             Starter.Run();
         }
     }
