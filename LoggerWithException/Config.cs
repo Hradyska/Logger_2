@@ -1,9 +1,6 @@
-﻿using System.Text.Json;
-using System.Text.Json.Serialization;
-
-namespace LoggerWithException
+﻿namespace LoggerWithException
 {
-    public class Config
+    public sealed class Config
     {
         public LogConfig GetLogConfig { get; set; }
     }

@@ -1,7 +1,5 @@
 ﻿using System.Text.Json;
 using static LoggerWithException.Actions;
-using static LoggerWithException.BusinessException;
-
 namespace LoggerWithException
 {
     internal static class Starter
@@ -59,9 +57,9 @@ namespace LoggerWithException
 
             string configFile = File.ReadAllText("config.json");
             Config config = JsonSerializer.Deserialize<Config>(configFile);
-            FileService.Path = config.GetLogConfig.Path;
-            FileService.FileName = $"{DateTime.Now.ToString(config.GetLogConfig.TimeFormat)}" + config.GetLogConfig.LogName;
-            Logwriter.WriteToFile();
+            string path = config.GetLogConfig.Path;
+            string fileName = $"{DateTime.Now.ToString(config.GetLogConfig.TimeFormat)}" + config.GetLogConfig.LogName;
+            Logwriter.WriteLogToFile(path, fileName);
         }
     }
 }

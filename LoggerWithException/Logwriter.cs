@@ -13,9 +13,9 @@
             Log += $"{Environment.NewLine}{time.ToString("hh.mm.ss. dd.MM.yyyy")}: {type}: {message}";
         }
 
-        public static void WriteToFile()
+        public static void WriteLogToFile(string path, string fileName)
         {
-            FileService.StreamWriter(Log);
+            FileService.WriteToFile(Log, path, fileName);
         }
     }
 }

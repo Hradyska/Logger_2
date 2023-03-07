@@ -1,4 +1,5 @@
-﻿namespace LoggerWithException
+﻿using static LoggerWithException.FileService;
+namespace LoggerWithException
 {
     public enum LogType
     {

@@ -1,6 +1,6 @@
 ﻿namespace LoggerWithException
 {
-    internal class BusinessException : Exception
+    internal sealed class BusinessException : Exception
     {
         public BusinessException(DateTime time, string message)
         {

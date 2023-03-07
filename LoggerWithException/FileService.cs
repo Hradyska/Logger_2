@@ -1,58 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.CompilerServices;
 
 namespace LoggerWithException
 {
-    internal static class FileService
+    public static class FileService
     {
-        private static string _path = string.Empty;
-        private static string _fileName = string.Empty;
-
-        static FileService()
+        public static void WriteToFile(string log, string path, string fileName)
         {
-            _path = Path;
-            _fileName = FileName;
-        }
-
-        public static string Path
-        {
-            get
-            {
-                return _path;
-            }
-            set
-            {
-                _path = value;
-            }
-        }
-
-        public static string FileName
-        {
-            get
-            {
-                return _fileName;
-            }
-            set
-            {
-                _fileName = value;
-            }
-        }
-
-        public static void StreamWriter(string log)
-        {
-            DirectoryInfo();
-            using StreamWriter sw = new (_path + _fileName);
+            DirectoryInfo(path);
+            using StreamWriter sw = new (path + fileName);
             sw.Write(log);
         }
 
-        public static void DirectoryInfo()
+        public static void DirectoryInfo(string path)
         {
-            if (Directory.Exists(_path))
+            if (Directory.Exists(path))
             {
-                DirectoryInfo info = new DirectoryInfo(_path);
+                DirectoryInfo info = new DirectoryInfo(path);
                 FileInfo[] fileInfos = info.GetFiles().OrderBy(p => p.CreationTime).ToArray();
                 if (fileInfos.Length > 3)
                 {
@@ -61,7 +24,7 @@ namespace LoggerWithException
             }
             else
             {
-                Directory.CreateDirectory(_path);
+                Directory.CreateDirectory(path);
             }
         }
     }
